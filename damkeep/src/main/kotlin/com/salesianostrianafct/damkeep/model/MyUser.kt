@@ -15,7 +15,6 @@ data class MyUser(
         @Column(unique = true)
         private var username: String,
 
-        @field:Pattern(regexp = "[1-9]{6,20}", message = "Only lower case first name")
         private var password: String,
 
         @JsonManagedReference

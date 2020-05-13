@@ -2,6 +2,7 @@ package com.salesianostrianafct.damkeep.controller
 
 import com.salesianostrianafct.damkeep.dto.CreateNote
 import com.salesianostrianafct.damkeep.dto.NoteShow
+import com.salesianostrianafct.damkeep.dto.toNote
 import com.salesianostrianafct.damkeep.dto.toNoteShow
 import com.salesianostrianafct.damkeep.model.MyUser
 import com.salesianostrianafct.damkeep.model.Note
@@ -48,22 +49,21 @@ class NoteController(val noteService: NoteService) {
 
 
     }
-/*
+
     @PostMapping("/")
-    fun postNote(@PathVariable id: UUID): Note {
-        val result = noteService.findById(id)
-        return result.orElseThrow {
-            ResponseStatusException(
-                    HttpStatus.NOT_FOUND, "No se ha encontrado la nota con el identificador $id")
-        }
+    fun postNote( @RequestBody note: CreateNote,@AuthenticationPrincipal user :MyUser): ResponseEntity<*> {
+        val result = noteService.save(note.toNote(user))
+        if(result!=null) return ResponseEntity<NoteShow>(result.toNoteShow(),HttpStatus.CREATED)
+        else throw ResponseStatusException(
+                HttpStatus.BAD_REQUEST, "No se ha creado la nota ${note.title}")
     }
 
     @GetMapping("/")
-    fun getNotesByUser(@AuthenticationPrincipal user: MyUser): List<Note> {
+    fun getNotesByUser(@AuthenticationPrincipal user: MyUser): List<NoteShow> {
         val result: List<Note> = noteService.findByUser(user)
-        if (result.isNotEmpty()) return result
+        if (result.isNotEmpty()) return result.map { it.toNoteShow() }
         else throw ResponseStatusException(HttpStatus.NO_CONTENT, "No hay notas que mostrar")
     }
-*/
+
 
 }

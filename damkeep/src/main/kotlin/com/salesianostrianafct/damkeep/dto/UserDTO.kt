@@ -17,6 +17,6 @@ data class UserSignUp(
         var password: String
 )
 
-fun MyUser.toUserShow() = UserShow(id, username, if (roles.size > 1) roles.first() else roles.elementAt(1))
+fun MyUser.toUserShow() = UserShow(id, username, if (roles.size == 1) roles.first() else roles.elementAt(1))
 
 fun UserSignUp.toMyUser() = MyUser(username, password, ArrayList(), "USER")
