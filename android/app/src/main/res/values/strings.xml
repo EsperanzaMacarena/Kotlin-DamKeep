@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">damkeep</string>
+    <string name="password">Password</string>
+    <string name="username">Username</string>
+    <string name="title_activity_home">home</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="login">LogIn</string>
+    <string name="delete">Remove Note</string>
+    <string name="edit">Edit</string>
+    <string name="createdOn">Date</string>
+    <string name="Modified">Last modification</string>
+    <string name="title">Title</string>
+    <string name="write_title_here">Write the title here</string>
+    <string name="write_note">Write your note here</string>
+    <string name="save">Save</string>
+    <string name="not_registered_yet">Are you new? Join here!</string>
+    <string name="type_username">Type your username</string>
+    <string name="join_us">Join to DamKeep!</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="logout" />
+</resources>
